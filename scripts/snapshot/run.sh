@@ -18,7 +18,7 @@ function run {
     --params.platform_id="$PLATFORM_ID" \
     --params.width="$WIDTH" \
     --params.height="$HEIGHT" \
-    --params.test_id="$($CIRCLE_SHA1 || $RANDOM)"
+    --params.test_id="${CIRCLE_SHA1:-$RANDOM}"
 }
 
 source $(dirname $0)/../utils.inc

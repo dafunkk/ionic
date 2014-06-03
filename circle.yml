@@ -4,6 +4,14 @@ machine:
 dependencies:
   pre:
     - npm install -g protractor gulp
+    - git config --global user.name 'Ionitron'
+    - git config --global user.email hi@ionicframework.com
 test:
+  pre:
+    # Do some cursory code checking and testing before splitting
+    # into parallel
+    - gulp jshint ddescribe-iit
+    - gulp karma --browsers=PhantomJS --reporters=dots
   override:
-    - ./scripts/circle/run.sh: {parallel: true}
+    # TODO figure out how to put multiline script in yml
+    - ./scripts/circle/test.sh: {parallel: true}
