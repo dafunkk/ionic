@@ -9,6 +9,7 @@ function init {
   export SAUCE_BUILD_ID=${CIRCLE_SHA1:-$RANDOM}
 }
 
+## TODO add more test cases
 function run {
   case $CIRCLE_NODE_INDEX in
   0)
